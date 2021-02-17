@@ -3,9 +3,9 @@ import ResultDetail from './resultDetail.jsx';
 
 
 function Results(props) {
-  return <ul>
+  return <ul className = 'resultsContainer'>
     {props.results.map((data) => {
-      return <ResultDetail description = {data.description}/>
+      return <ResultDetail {...data}/>
     })
   }
   </ul>

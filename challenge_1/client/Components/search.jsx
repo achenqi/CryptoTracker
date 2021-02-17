@@ -9,7 +9,14 @@ class Search extends React.Component {
   }
 
   render() {
-    return <input onChange={this.props.handleInput}></input>
+    return (
+      <div class="search-box">
+        <div class="outline">
+        <label class="form-label" for="form1">Search</label>
+          <input type="search" id="form1" class="search" onChange={this.props.handleInput} placeholder= "Type here"/>
+        </div>
+      </div>
+    )
   }
 }
 

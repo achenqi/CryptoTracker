@@ -58,8 +58,8 @@ class Index extends React.Component{
       <Search handleInput = {this.handleInput}/>
       <Results results={this.state.results}/>
       <ReactPaginate
-          previousLabel={'previous'}
-          nextLabel={'next'}
+          previousLabel={'<<'}
+          nextLabel={'>>'}
           breakLabel={'...'}
           breakClassName={'break-me'}
           pageCount={Math.ceil(this.state.total/10)}

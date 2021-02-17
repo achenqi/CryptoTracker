@@ -1,0 +1,85 @@
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-user-select: none; /* Chrome/Safari */
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+ */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.resultsContainer {
+  padding-left: 40px;
+}
+
+.resultsContainer li{
+  padding-top: 20px;
+  cursor: pointer;
+}
+
+.search-box {
+  padding-top: 10px;
+}
+
+#form1 {
+  padding-left : 10px 10px 10px 10px;
+  font-size: 17px;
+  border: 1px solid black;
+  width: 500px;
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.form-label{
+  padding: 10px;
+}
+
+.listHover {
+  /*visibility: hidden;*/
+  width: 200px;
+  background-color: black;
+  color: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: .7s;
+  pointer-events: none;
+}
+
+.listHover ul {
+  padding-left : 10px;
+}
+
+.listHover ul li{
+  padding: 5px;
+  list-style-type: none;
+}
+
+.resultsContainer div:hover .listHover{
+  visibility: visible;
+  opacity: 1;
+}
+
+.pagination {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.pagination li {
+  float: left;
+  padding: 10px 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.pagination li a {
+  color: black;
+}
+
+.pagination li.active {
+  background-color: gray;
+}
