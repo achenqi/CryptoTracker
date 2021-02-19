@@ -9,6 +9,7 @@ function Index() {
   const[data, setData] = useState();
   const[ctx, setCtx] = useState();
   const[localOnly, setLocal] = useState(true);
+  const[crypto, useCrypto] = useState('btc');
   const storage = window.localStorage;
 
   useEffect(()=> {
@@ -29,13 +30,15 @@ function Index() {
   }, [localOnly]);
 
   function apiRequest() {
-    axios.get('https://api.coindesk.com/v1/bpi/historical/close.json')
+    if (crypto === 'btc') {
+      axios.get('https://api.coindesk.com/v1/bpi/historical/close.json')
       .then(data => {
         setLabels(Object.keys(data.data.bpi));
         setData(data);
         storage.setItem('cache', JSON.stringify({labels: Object.keys(data.data.bpi), data: data }));
       })
       .catch((err) => console.log(err))
+    }
   }
 
   function onCacheClick() {
