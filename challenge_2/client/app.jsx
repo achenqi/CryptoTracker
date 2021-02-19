@@ -18,8 +18,8 @@ function Index() {
 
   useEffect(() => {
     if (localOnly === true) {
-      if (storage.getItem('cache')) {
-        const localInfo = JSON.parse(storage.getItem('cache'));
+      if (storage.getItem(crypto)) {
+        const localInfo = JSON.parse(storage.getItem(crypto));
         setLabels(localInfo.labels);
         setData(localInfo.data);
       }
@@ -35,7 +35,7 @@ function Index() {
       .then(data => {
         setLabels(Object.keys(data.data.bpi));
         setData(data);
-        storage.setItem('cache', JSON.stringify({labels: Object.keys(data.data.bpi), data: data }));
+        storage.setItem(crypto, JSON.stringify({labels: Object.keys(data.data.bpi), data: data }));
       })
       .catch((err) => console.log(err))
     }
