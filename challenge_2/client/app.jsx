@@ -94,7 +94,7 @@ function Index() {
               label: `${crypto} Price`,
               backgroundColor: 'rgb(242, 169, 0)',
               borderColor: 'rgb(242, 169, 0)',
-              data: Object.values(data.data.map((price)=> price.close)),
+              data: Object.values(data.data.map((price)=> price.close.toFixed(4))),
               pointBackgroundColor:'rgb(77, 77, 78)',
               pointBorderColor:'rgb(0, 0, 0)'
           },]
