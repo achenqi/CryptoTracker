@@ -59,11 +59,21 @@ app.get('/marketprice/:crypto', (req,res) => {
   }
   )
   .then((data) => {
-    var convertedData = data.data.Data.Data.map(data => {
-      data.time = timeConverter(data.time);
-      return data;
-    });
-    res.send(convertedData);
+    try {
+      var convertedData = data.data.Data.Data.map(data => {
+        data.time = timeConverter(data.time);
+        return data;
+      });
+      console.log('success')
+      res.send(convertedData);
+
+    } catch (err) {
+      res.send('err').status(400);
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+    res.send.status(500)(err);
   })
 })
 // curl -H "X-CMC_PRO_API_KEY: 11a9aa2e-fc7f-4d61-b6c5-ea8c77d556f5" -H "Accept: application/json" -d "start=1&limit=5000&convert=USD" -G https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest
