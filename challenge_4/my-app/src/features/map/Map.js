@@ -9,11 +9,19 @@ export function Map() {
   const currentMap = useSelector(mapCount);
   const dispatch = useDispatch();
   console.log('asdasd', currentMap);
+  var mines = 10;
+
+  // dispatch(update([[{val:1},{},{},{},{},{},{},{},{},{}],[{},{},{},{},{},{},{},{},{},{}],[{},{},{},{},{},{},{},{},{},{}],[{},{},{},{},{},{},{},{},{},{}],[{},{},{},{},{},{},{},{},{},{}],[{},{},{},{},{},{},{},{},{},{}],[{},{},{},{},{},{},{},{},{},{}],[{},{},{},{},{},{},{},{},{},{}],[{},{},{},{},{},{},{},{},{},{}],[{},{},{},{},{},{},{},{},{},{}]]));
+
   return (
     <div>
-      {currentMap.map((rows) => {
-        return <tr>{rows.map((value) => (<th></th>))}</tr>
-      })}
+      <table>
+        <tbody>
+        {currentMap.map((rows) => {
+          return <tr>{rows.map((value) => (<th>{value.val}</th>))}</tr>
+        })}
+        </tbody>
+      </table>
     </div>
   );
 }
